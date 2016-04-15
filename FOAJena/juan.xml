@@ -1,0 +1,29 @@
+<rdf:RDF
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:admin="http://webns.net/mvcb/">
+<foaf:PersonalProfileDocument rdf:about="">
+  <foaf:maker rdf:resource="#me"/>
+  <foaf:primaryTopic rdf:resource="#me"/>
+  <admin:generatorAgent rdf:resource="http://www.ldodds.com/foaf/foaf-a-matic"/>
+  <admin:errorReportsTo rdf:resource="mailto:leigh@ldodds.com"/>
+</foaf:PersonalProfileDocument>
+<foaf:Person rdf:ID="me">
+<foaf:name>Juan Santana</foaf:name>
+<foaf:givenname>Juan</foaf:givenname>
+<foaf:family_name>Santana</foaf:family_name>
+<foaf:mbox rdf:resource="mailto:cto@laureus.com"/>
+<foaf:homepage rdf:resource="staff.laureus.com/juans"/>
+<foaf:workplaceHomepage rdf:resource="laureus.com"/>
+<foaf:knows>
+<foaf:Person>
+<foaf:name>Luisa</foaf:name>
+<foaf:mbox rdf:resource="mailto:cto@laureus.com"/>
+<rdfs:seeAlso rdf:resource="luisa.xml"/></foaf:Person></foaf:knows>
+<foaf:knows>
+<foaf:Person>
+<foaf:name>Ana</foaf:name>
+<foaf:mbox rdf:resource="mailto:dataWarehousing@laureus.com"/>
+<rdfs:seeAlso rdf:resource="ana.xml"/></foaf:Person></foaf:knows></foaf:Person>
+</rdf:RDF>

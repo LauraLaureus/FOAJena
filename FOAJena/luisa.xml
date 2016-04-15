@@ -1,0 +1,24 @@
+<rdf:RDF
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:admin="http://webns.net/mvcb/">
+<foaf:PersonalProfileDocument rdf:about="">
+  <foaf:maker rdf:resource="#me"/>
+  <foaf:primaryTopic rdf:resource="#me"/>
+  <admin:generatorAgent rdf:resource="http://www.ldodds.com/foaf/foaf-a-matic"/>
+  <admin:errorReportsTo rdf:resource="mailto:leigh@ldodds.com"/>
+</foaf:PersonalProfileDocument>
+<foaf:Person rdf:ID="me">
+<foaf:name>Luisa Rodríguez</foaf:name>
+<foaf:givenname>Luisa</foaf:givenname>
+<foaf:family_name>Rodríguez</foaf:family_name>
+<foaf:mbox rdf:resource="mailto:cto@laureus.com"/>
+<foaf:homepage rdf:resource="staff.laureus.com/luisaR"/>
+<foaf:workplaceHomepage rdf:resource="laureus.com"/>
+<foaf:knows>
+<foaf:Person>
+<foaf:name>Andrés</foaf:name>
+<foaf:mbox rdf:resource="mailto:communityManager@laureus.com"/>
+<rdfs:seeAlso rdf:resource="andres.xml"/></foaf:Person></foaf:knows></foaf:Person>
+</rdf:RDF>
