@@ -8,6 +8,8 @@ package foajena;
 import org.apache.jena.atlas.logging.LogCtl;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.riot.RDFFormat;
 
 /**
  *
@@ -31,7 +33,12 @@ public class FOAJena {
         Model model = ModelFactory.createDefaultModel();
         model.read(filePath);
         
-        model.write(System.out);
+        //model.write(System.out);
+        System.out.println("<---------------NTRIPLES---------------->");
+        RDFDataMgr.write(System.out,model,RDFFormat.NTRIPLES);
+        System.out.println("<----------------TURTLE----------------->");
+        RDFDataMgr.write(System.out,model,RDFFormat.TURTLE_PRETTY);
+        
     }
     
 }
