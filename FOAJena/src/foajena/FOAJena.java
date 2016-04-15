@@ -8,6 +8,8 @@ package foajena;
 import org.apache.jena.atlas.logging.LogCtl;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.RDFNode;
+import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
 import org.apache.jena.riot.RDFDataMgr;
@@ -42,21 +44,38 @@ public class FOAJena {
         System.out.println("<----------------TURTLE----------------->");
         RDFDataMgr.write(System.out,model,RDFFormat.TURTLE_PRETTY);
         
+        System.out.println("<------END------>");
         
+        printKnownPeople(model, true);
     }
     
     
-    private void printKnownPeople(Model m, boolean foaf){
+    private static void printKnownPeople(Model m, boolean foaf){
         
         StmtIterator it = m.listStatements();
         
-        Statement stmt;
+        Statement stmt,emptyNodeStmt;
         while(it.hasNext()){
             stmt = it.nextStatement();
             if(!stmt.getPredicate().toString().contains("knows")) continue;
             else{
                 System.out.println(stmt.getSubject().toString());
-                System.out.println(stmt.getObject().asLiteral().toString());
+                StmtIterator voidEmptyNodes = m.listStatements( stmt.getObject().asResource(), null,(RDFNode) null);
+                while(voidEmptyNodes.hasNext()){
+                    
+                    emptyNodeStmt = voidEmptyNodes.next();
+                    if(!emptyNodeStmt.getPredicate().toString().contains("name"))
+                        continue;
+                    else{
+                        System.out.println("Knows " + emptyNodeStmt.getObject().asLiteral().toString());
+                        if(foaf){
+                            printKnownPeople(
+                                ModelFactory.createDefaultModel().read(
+                                   emptyNodeStmt.getObject().asLiteral().toString().toLowerCase() + ".xml"
+                                ),false);
+                        }
+                    }
+                }
             }
         }
     }
